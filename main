@@ -1,0 +1,15 @@
+import os
+from Bandera import *
+
+if __name__ == '__main__':
+    path = r'C:\Users\Brayan Pedraza\Downloads\banderas'
+    image_name = input("ingrese el nombre de su bandera(incliuda extension):") #deben ser los mismos nombres de blackboard
+    path_file = os.path.join(path, image_name)
+    image = cv2.imread(path_file)
+    imagen = Bandera(image)
+    #si el número de colores es mayor al que tiene la bandera, da error
+    color = int(input("ingrese el número de colores de su bandera (máximo 4):"))
+    color_imagen=imagen.colores(color)
+    imagen.porcentaje(image)
+    angulo=imagen.orientacion()
+    print(angulo)
